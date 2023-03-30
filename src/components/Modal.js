@@ -65,10 +65,40 @@ const Modal = ({ open, onClose, login, toggleLogin }) => {
 };
 const ModalBG = styled.div`
   position: fixed;
-  height: 50vh;
-  width: 60vw;
-  top: 30vh;
-  left: 20vw;
+  height: 40vh;
+  width: 80vw;
+  top: 10vh;
+  left: 10vw;
+  @media screen and (min-width: 800px) {
+    height: 40vh;
+    width: 60vw;
+    top: 30vh;
+    left: 20vw;
+  }
+  @media screen and (min-width: 1000px) {
+    height: 40vh;
+    width: 50vw;
+    top: 30vh;
+    left: 25vw;
+  }
+  @media screen and (min-width: 1200px) {
+    height: 40vh;
+    width: 50vw;
+    top: 30vh;
+    left: 25vw;
+  }
+  @media screen and (min-width: 1400px) {
+    height: 40vh;
+    width: 40vw;
+    top: 30vh;
+    left: 30vw;
+  }
+  @media screen and (min-width: 1600px) {
+    height: 40vh;
+    width: 30vw;
+    top: 30vh;
+    left: 35vw;
+  }
   transform: center;
   background: white;
   z-index: 1000;
