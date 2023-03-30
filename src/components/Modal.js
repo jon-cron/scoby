@@ -23,7 +23,11 @@ const Modal = ({ open, onClose, isLogin, toggleLogin }) => {
           <form>
             <label>
               <span>Email:</span>
-              <input type="text" placeholder="enter email" />
+              <input
+                type="text"
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="enter email"
+              />
             </label>
             <label>
               <span>Password:</span>
@@ -49,7 +53,11 @@ const Modal = ({ open, onClose, isLogin, toggleLogin }) => {
           <form>
             <label>
               <span>Email:</span>
-              <input type="email" placeholder="enter email" />
+              <input
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="enter email"
+              />
             </label>
             <label>
               <span>Name:</span>
@@ -64,7 +72,7 @@ const Modal = ({ open, onClose, isLogin, toggleLogin }) => {
               <input type="password" placeholder="enter password" />
             </label>
             <div>
-              <button className="btn">Login</button>
+              <button className="btn">Register</button>
               <button className="btn" onClick={onClose}>
                 Cancel
               </button>
