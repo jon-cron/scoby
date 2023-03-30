@@ -1,14 +1,16 @@
 import React from "react";
+import ReactDom from "react-dom";
 import styled from "styled-components";
 const Modal = ({ open, children, onClose }) => {
   if (!open) return null;
-  return (
+  return ReactDom.createPortal(
     <BackDrop>
       <ModalBG className="modal">
         {children}
         <button onClick={onClose}>Close</button>
       </ModalBG>
-    </BackDrop>
+    </BackDrop>,
+    document.getElementById("portal")
   );
 };
 const ModalBG = styled.div`
