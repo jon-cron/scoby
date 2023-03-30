@@ -1,12 +1,11 @@
-import React, { useContext, useEffect, useState, useReducer } from "react";
+import React, { useContext, useEffect, useReducer } from "react";
 import { auth } from "../firebase/config.js";
 import { onAuthStateChanged } from "firebase/auth";
-import { AUTH_IS_READY } from "../actions.js";
 
 const AuthContext = React.createContext();
 const authReducer = (state, action) => {
   switch (action.type) {
-    case AUTH_IS_READY:
+    case "AUTH_IS_READY":
       return { ...state, user: action.payload, authIsReady: true };
     default:
       return state;
@@ -21,7 +20,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
-      dispatch({ type: AUTH_IS_READY, payload: user });
+      dispatch({ type: "AUTH_IS_READY", payload: user });
       unsub();
     });
   }, []);
@@ -32,5 +31,9 @@ export const AuthProvider = ({ children }) => {
   );
 };
 export const useAuthContext = () => {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+  if (!context) {
+    throw new Error("Must use auth within the provider");
+  }
+  return context;
 };
