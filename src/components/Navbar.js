@@ -1,13 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import AuthButtons from "./AuthButtons.js";
 const Navbar = () => {
   return (
     <NavContainer>
       <div className="nav-center">
-        <Link className="link" to="/">
+        <Link className="link" to="/" title="Home">
           <h2>All things Scoby</h2>
         </Link>
+        <AuthButtons />
       </div>
     </NavContainer>
   );
@@ -20,6 +22,9 @@ const NavContainer = styled.nav`
   text-decoration: none;
   background: #dbdd79;
   .nav-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 90vw;
     margin: 0 auto;
     max-width: var(--max-width);
