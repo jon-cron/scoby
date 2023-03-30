@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDom from "react-dom";
 import styled from "styled-components";
-const Modal = ({ open, onClose, login, toggleLogin }) => {
+import { useLogin } from "../hooks/useLogin.js";
+import { useRegister } from "../hooks/useRegister.js";
+const Modal = ({ open, onClose, isLogin, toggleLogin }) => {
+  const { loginError, login } = useLogin();
+  const { registerError, isPending, signup } = useRegister();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [signupError, setSignupError] = useState(null);
+  const [displayName, setDisplayName] = useState("");
+  const [profileImg, setProfileImg] = useState(null);
+  const [profileImgError, setProfileImgError] = useState(null);
   if (!open) return null;
-
+  const handleLogin = () => {};
+  const handleRegister = () => {};
   return ReactDom.createPortal(
     <BackDrop>
-      {login ? (
+      {isLogin ? (
         <ModalBG className="modal">
           <h2>Login</h2>
           <form>
@@ -16,7 +27,7 @@ const Modal = ({ open, onClose, login, toggleLogin }) => {
             </label>
             <label>
               <span>Password:</span>
-              <input type="text" placeholder="enter password" />
+              <input type="password" placeholder="enter password" />
             </label>
             <div>
               <button className="btn">Login</button>
@@ -38,11 +49,19 @@ const Modal = ({ open, onClose, login, toggleLogin }) => {
           <form>
             <label>
               <span>Email:</span>
-              <input type="text" placeholder="enter email" />
+              <input type="email" placeholder="enter email" />
+            </label>
+            <label>
+              <span>Name:</span>
+              <input type="text" placeholder="enter name" />
+            </label>
+            <label>
+              <span>Image:</span>
+              <input type="file" />
             </label>
             <label>
               <span>Password:</span>
-              <input type="text" placeholder="enter password" />
+              <input type="password" placeholder="enter password" />
             </label>
             <div>
               <button className="btn">Login</button>
@@ -65,30 +84,30 @@ const Modal = ({ open, onClose, login, toggleLogin }) => {
 };
 const ModalBG = styled.div`
   position: fixed;
-  height: 40vh;
+  height: 22em;
   width: 80vw;
   top: 10vh;
   left: 10vw;
   @media screen and (min-width: 800px) {
-    height: 40vh;
+    height: 22em;
     width: 60vw;
     top: 30vh;
     left: 20vw;
   }
   @media screen and (min-width: 1000px) {
-    height: 40vh;
+    height: 22em;
     width: 50vw;
     top: 30vh;
     left: 25vw;
   }
   @media screen and (min-width: 1200px) {
-    height: 40vh;
+    height: 22em;
     width: 50vw;
     top: 30vh;
     left: 25vw;
   }
   @media screen and (min-width: 1400px) {
-    height: 40vh;
+    height: 22em;
     width: 40vw;
     top: 30vh;
     left: 30vw;
