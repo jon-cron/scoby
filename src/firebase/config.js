@@ -1,3 +1,4 @@
+//NOTE npm install firebase; then copy this as needed
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
