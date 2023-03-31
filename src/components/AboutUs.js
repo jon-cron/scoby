@@ -51,6 +51,7 @@ const AboutUs = () => {
         max-width: 80%;
         object-fit: cover;
       }
+      /* NOTE this is a good way to hide an element on smaller screens */
       @media only screen and (max-width: 525px) {
         display: none;
       }
