@@ -5,7 +5,7 @@ import { useLogin } from "../hooks/useLogin.js";
 import { useRegister } from "../hooks/useRegister.js";
 const Modal = ({ open, onClose, isLogin, toggleLogin }) => {
   const { loginError, login } = useLogin();
-  const { registerError, isPending, signup } = useRegister();
+  const { registerError, isPending, register } = useRegister();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [signupError, setSignupError] = useState(null);
@@ -14,7 +14,37 @@ const Modal = ({ open, onClose, isLogin, toggleLogin }) => {
   const [profileImgError, setProfileImgError] = useState(null);
   if (!open) return null;
   const handleLogin = () => {};
-  const handleRegister = () => {};
+  const handleRegister = (e) => {
+    e.preventDefault();
+    setSignupError(null);
+    if (password.length < 10) {
+      return;
+    }
+    register(email, password, displayName, profileImg);
+    if (registerError) {
+      setSignupError(registerError);
+    }
+  };
+  const handleImg = (e) => {
+    setProfileImg(null);
+    setProfileImgError(null);
+    let selected = e.target.files[0];
+    if (!selected) {
+      setProfileImgError("Please select a file");
+      return;
+    }
+    if (!selected.type.includes("image")) {
+      setProfileImgError("Please select an image file");
+      return;
+    }
+    if (selected.size > 100000) {
+      setProfileImgError("File size too larger");
+      return;
+    }
+    setProfileImgError(null);
+    setProfileImg(selected);
+    console.log(profileImg);
+  };
   return ReactDom.createPortal(
     <BackDrop>
       {isLogin ? (
@@ -50,30 +80,42 @@ const Modal = ({ open, onClose, isLogin, toggleLogin }) => {
       ) : (
         <ModalBG className="modal">
           <h2>Register</h2>
-          <form>
+          <form onSubmit={handleRegister}>
             <label>
               <span>Email:</span>
               <input
                 type="email"
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="enter email"
+                value={email}
               />
             </label>
             <label>
               <span>Name:</span>
-              <input type="text" placeholder="enter name" />
+              <input
+                type="text"
+                placeholder="enter name"
+                onChange={(e) => setDisplayName(e.target.value)}
+                value={displayName}
+              />
             </label>
             <label>
               <span>Image:</span>
-              <input type="file" />
+              <input type="file" onChange={handleImg} />
             </label>
+            {profileImgError && <div>{profileImgError}</div>}
             <label>
               <span>Password:</span>
-              <input type="password" placeholder="enter password" />
+              <input
+                type="password"
+                placeholder="enter password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+              />
             </label>
             <div>
               <button className="btn">Register</button>
-              <button className="btn" onClick={onClose}>
+              <button className="btn" type="button" onClick={onClose}>
                 Cancel
               </button>
             </div>
