@@ -113,6 +113,7 @@ const Modal = ({ open, onClose, isLogin, toggleLogin }) => {
                 value={password}
               />
             </label>
+            {signupError && <div>{signupError}</div>}
             <div>
               <button className="btn">Register</button>
               <button className="btn" type="button" onClick={onClose}>
