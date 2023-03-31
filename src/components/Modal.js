@@ -24,6 +24,7 @@ const Modal = ({ open, onClose, isLogin, toggleLogin }) => {
     if (registerError) {
       setSignupError(registerError);
     }
+    onClose();
   };
   const handleImg = (e) => {
     setProfileImg(null);

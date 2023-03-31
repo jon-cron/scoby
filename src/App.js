@@ -6,16 +6,18 @@ import { useAuthContext } from "./context/auth_context.js";
 function App() {
   const { authIsReady } = useAuthContext();
   return (
-    <Router>
+    <>
       {authIsReady && (
-        <>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-          </Routes>
-        </>
+        <Router>
+          <>
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </>
+        </Router>
       )}
-    </Router>
+    </>
   );
 }
 
