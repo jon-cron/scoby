@@ -1,7 +1,11 @@
 import React from "react";
-
+import AboutUs from "../components/index.js";
 const HomePage = () => {
-  return <div>HomePage</div>;
+  return (
+    <>
+      <AboutUs />
+    </>
+  );
 };
 
 export default HomePage;
