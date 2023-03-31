@@ -6,22 +6,38 @@ const AboutUs = () => {
   const AboutDiv = styled.div`
     background-color: #bfbfc1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     padding: 30px 75px;
+    @media screen and (min-width: 1200px) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+
     img {
+      @media screen and (min-width: 1200px) {
+        height: 35em;
+      }
+      height: 20em;
       width: 100%;
-      height: 35em;
       object-fit: cover;
       border-radius: 4px;
-      box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+      box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.5);
     }
     .text {
+      @media screen and (min-width: 1200px) {
+        max-width: 40%;
+      }
+      padding-top: 5em;
+      max-width: 80ch;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      max-width: 40%;
       text-indent: 50px;
       height: 35em;
     }
