@@ -16,10 +16,43 @@ const AboutUs = () => {
       align-items: center;
       justify-content: space-evenly;
     }
-
+    @media screen and (min-width: 1000px) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-evenly;
+    }
+    .col-1 {
+      @media screen and (min-width: 1000px) {
+        min-width: 50%;
+      }
+      @media screen and (min-width: 1200px) {
+        min-width: 30%;
+      }
+    }
     img {
+      /* @media screen and (min-width: 800px) {
+        height: 25em;
+        max-width: 75%;
+        object-fit: cover;
+      } */
+      @media screen and (min-width: 1000px) {
+        height: 35em;
+        max-width: 75%;
+        object-fit: cover;
+      }
       @media screen and (min-width: 1200px) {
         height: 35em;
+        max-width: 100%;
+        object-fit: cover;
+      }
+      @media screen and (min-width: 1500px) {
+        height: 35em;
+        max-width: 80%;
+        object-fit: cover;
+      }
+      @media only screen and (max-width: 525px) {
+        display: none;
       }
       height: 20em;
       width: 100%;
@@ -31,6 +64,11 @@ const AboutUs = () => {
       @media screen and (min-width: 1200px) {
         max-width: 40%;
       }
+      @media screen and (min-width: 1000px) {
+        max-width: 50%;
+      }
+      font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+        "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
       padding-top: 5em;
       max-width: 80ch;
       overflow: hidden;
@@ -46,7 +84,7 @@ const AboutUs = () => {
     <>
       {authIsReady && (
         <AboutDiv>
-          <div>
+          <div className="col-1">
             <img src="https://plus.unsplash.com/premium_photo-1661776529978-0ea90437970a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8a29tYnVjaGF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" />
           </div>
           <div className="text">
