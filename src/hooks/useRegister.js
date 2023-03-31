@@ -40,7 +40,7 @@ export const useRegister = () => {
       const usersRef = collection(db, "users");
       await addDoc(usersRef, {
         id: res.user.uid,
-        profileName: displayName,
+        displayName: displayName,
         photoURL: imgUrl,
       });
       dispatch({ type: "LOGIN", payload: res.user });

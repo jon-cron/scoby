@@ -17,7 +17,7 @@ const Modal = ({ open, onClose, isLogin, toggleLogin }) => {
   const handleRegister = (e) => {
     e.preventDefault();
     setSignupError(null);
-    if (password.length < 10) {
+    if (password.length < 7) {
       return;
     }
     register(email, password, displayName, profileImg);
