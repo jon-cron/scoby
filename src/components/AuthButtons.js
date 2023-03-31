@@ -5,7 +5,7 @@ import Modal from "./Modal.js";
 const AuthButtons = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [login, setLogin] = useState(false);
-  const { user } = useAuthContext();
+  const { authIsReady, user } = useAuthContext();
   if (!user) {
     return (
       <ButtonDiv>
@@ -35,10 +35,11 @@ const AuthButtons = () => {
         ></Modal>
       </ButtonDiv>
     );
-  } else {
+  }
+  if (authIsReady && user) {
     return (
       <div>
-        {user} <button>Logout</button>
+        <button>Logout</button>
       </div>
     );
   }
