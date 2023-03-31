@@ -1,17 +1,19 @@
-import React, { useContext, useEffect, useReducer } from "react";
+import React, { useContext, useEffect, useReducer, createContext } from "react";
 import { auth } from "../firebase/config.js";
 import { onAuthStateChanged } from "firebase/auth";
 
-const AuthContext = React.createContext();
+const AuthContext = createContext();
 const authReducer = (state, action) => {
   switch (action.type) {
     case "AUTH_IS_READY":
       return { ...state, user: action.payload, authIsReady: true };
+    case "LOGIN":
+      return { ...state, user: action.payload };
     default:
       return state;
   }
 };
-export const AuthProvider = ({ children }) => {
+export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, {
     user: null,
     authIsReady: false,
@@ -20,7 +22,11 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsub = onAuthStateChanged(auth, (user) => {
-      dispatch({ type: "AUTH_IS_READY", payload: user });
+      dispatch({
+        type: "AUTH_IS_READY",
+        payload: user,
+      });
+      console.log(user);
       unsub();
     });
   }, []);
