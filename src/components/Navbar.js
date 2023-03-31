@@ -7,7 +7,7 @@ const Navbar = () => {
     <NavContainer>
       <div className="nav-center">
         <Link className="link" to="/" title="Home">
-          <h2>All things Scoby</h2>
+          <h4>All things Scoby</h4>
         </Link>
         <AuthButtons />
       </div>
@@ -15,13 +15,16 @@ const Navbar = () => {
   );
 };
 const NavContainer = styled.nav`
-  color: white;
+  color: grey;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background: #315c64;
+  background: white;
+  /* background: #315c64; */
   .nav-center {
     display: flex;
     justify-content: space-between;
@@ -32,7 +35,9 @@ const NavContainer = styled.nav`
   }
   .link {
     text-decoration: none;
-    color: white;
+    color: grey;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   }
 `;
 
