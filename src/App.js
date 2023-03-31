@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
 import { Home } from "./pages";
-import { Navbar } from "./components";
+import { Navbar, Footer } from "./components";
 import { useAuthContext } from "./context/auth_context.js";
 function App() {
   const { authIsReady } = useAuthContext();
@@ -14,6 +14,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
             </Routes>
+            <Footer />
           </>
         </Router>
       )}
