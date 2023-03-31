@@ -15,12 +15,13 @@ const Navbar = () => {
   );
 };
 const NavContainer = styled.nav`
+  color: white;
   height: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
-  background: #dbdd79;
+  background: #315c64;
   .nav-center {
     display: flex;
     justify-content: space-between;
@@ -31,7 +32,7 @@ const NavContainer = styled.nav`
   }
   .link {
     text-decoration: none;
-    color: black;
+    color: white;
   }
 `;
 
