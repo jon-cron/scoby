@@ -13,7 +13,10 @@ const Modal = ({ open, onClose, isLogin, toggleLogin }) => {
   const [profileImg, setProfileImg] = useState(null);
   const [profileImgError, setProfileImgError] = useState(null);
   if (!open) return null;
-  const handleLogin = () => {};
+  const handleLogin = (e) => {
+    e.preventDefault();
+    login(email, password);
+  };
   const handleRegister = (e) => {
     e.preventDefault();
     setSignupError(null);
@@ -51,22 +54,28 @@ const Modal = ({ open, onClose, isLogin, toggleLogin }) => {
       {isLogin ? (
         <ModalBG className="modal">
           <h2>Login</h2>
-          <form>
+          <form onSubmit={handleLogin}>
             <label>
               <span>Email:</span>
               <input
                 type="text"
                 onChange={(e) => setEmail(e.target.value)}
+                value={email}
                 placeholder="enter email"
               />
             </label>
             <label>
               <span>Password:</span>
-              <input type="password" placeholder="enter password" />
+              <input
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                placeholder="enter password"
+              />
             </label>
             <div>
               <button className="btn">Login</button>
-              <button className="btn" onClick={onClose}>
+              <button className="btn" type="button" onClick={onClose}>
                 Cancel
               </button>
             </div>
