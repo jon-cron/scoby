@@ -178,7 +178,7 @@ p {
   transition: var(--transition);
   font-size: 0.875rem;
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
   border-radius: var(--radius);
   border-color: transparent;
 }
