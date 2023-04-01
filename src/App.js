@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
-import { Home } from "./pages";
+import { Home, Products, SingleProduct } from "./pages";
 import { Navbar, Footer } from "./components";
 import { useAuthContext } from "./context/auth_context.js";
 function App() {
@@ -13,6 +13,8 @@ function App() {
             <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/products/:id" element={<SingleProduct />} />
             </Routes>
             <Footer />
           </>
