@@ -1,6 +1,6 @@
 import React from "react";
 
-const Featured = () => {
+const Featured = ({ featured }) => {
   return <div>Featured</div>;
 };
 export default Featured;

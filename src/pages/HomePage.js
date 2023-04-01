@@ -4,7 +4,6 @@ import { useCollection } from "../hooks/useCollection.js";
 const HomePage = () => {
   const { documents: products } = useCollection("kombuchas");
   const [featured, setFeatured] = useState([]);
-  console.log(products);
   const getFeatured = () => {
     if (products) {
       let arr = [];
@@ -17,7 +16,6 @@ const HomePage = () => {
   useEffect(() => {
     getFeatured();
   }, [products]);
-  console.log(featured);
   return (
     <>
       <AboutUs />
