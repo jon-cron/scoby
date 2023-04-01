@@ -1,3 +1,3 @@
 import Home from "./HomePage.js";
-
-export { Home };
+import Products from "./Products.js";
+export { Home, Products };
