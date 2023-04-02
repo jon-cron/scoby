@@ -20,6 +20,7 @@ const HomePage = () => {
     <>
       <AboutUs />
       <Featured featured={featured} />
+      {/* NOTE start on rendering the products on Monday */}
     </>
   );
 };
