@@ -5,6 +5,9 @@ const Wrapper = styled.div`
   margin: 0 5em;
   display: flex;
   justify-content: space-evenly;
+  @media screen and (min-width: 1200px) {
+    margin: 0 15vw auto;
+  }
 `;
 const Text = styled.h3`
   text-align: center;

@@ -90,7 +90,7 @@ const AboutUs = () => {
             <img src="https://plus.unsplash.com/premium_photo-1661776529978-0ea90437970a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8a29tYnVjaGF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" />
           </div>
           <div className="text">
-            <h2>About us</h2>
+            <h2>Discover the life changing benefits of fermented tea</h2>
             <span>
               Do eu aute voluptate enim ex tempor reprehenderit non. Ea ad est
               laborum sint. Ipsum veniam commodo do do. Ullamco dolor cupidatat
