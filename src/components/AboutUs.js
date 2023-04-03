@@ -4,7 +4,7 @@ import { useAuthContext } from "../context/auth_context.js";
 const AboutUs = () => {
   const { authIsReady } = useAuthContext();
   const AboutDiv = styled.div`
-    background-color: #bfbfc1;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,6 +15,7 @@ const AboutUs = () => {
       flex-direction: row;
       align-items: center;
       justify-content: space-evenly;
+      margin: 0 10vw auto;
     }
     @media screen and (min-width: 1000px) {
       display: flex;

@@ -29,6 +29,9 @@ const NavContainer = styled.nav`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media screen and (min-width: 1000px) {
+      width: 70vw;
+    }
     width: 95vw;
     margin: 0 auto;
     max-width: var(--max-width);
