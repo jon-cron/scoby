@@ -2,8 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { useCollection } from "../hooks/useCollection.js";
 import { Product, Hero, Filter } from "../components";
+import { useProductContext } from "../context/product_context.js";
 const Products = () => {
-  const { documents: products } = useCollection("kombuchas");
+  // const { documents: products } = useCollection("kombuchas");
+  const { products } = useProductContext();
   console.log(products);
 
   const Wrapper = styled.div`
