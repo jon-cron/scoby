@@ -16,7 +16,7 @@ const HomePage = () => {
   useEffect(() => {
     getFeatured();
   }, [products]);
-  if (products) {
+  if (featured != []) {
     return (
       <>
         <AboutUs />
