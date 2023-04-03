@@ -7,13 +7,13 @@ const Wrapper = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: white;
+  background: grey;
   text-align: center;
   span {
-    color: grey;
+    color: white;
   }
   h5 {
-    color: grey;
+    color: white;
     margin: 0.1rem;
 
     font-weight: 400;

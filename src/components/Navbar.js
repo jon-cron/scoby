@@ -9,6 +9,11 @@ const Navbar = () => {
         <Link className="link" to="/" title="Home">
           <h4>All things Scoby</h4>
         </Link>
+        <div className="pages">
+          <Link to="/products" className="link-btn">
+            All Drinks
+          </Link>
+        </div>
         <AuthButtons />
       </div>
     </NavContainer>
@@ -25,6 +30,13 @@ const NavContainer = styled.nav`
   text-decoration: none;
   background: white;
   /* background: #315c64; */
+  .link-btn {
+    color: grey;
+    /* transition: 0.2s ease all; */
+  }
+  .link-btn :hover {
+    color: black;
+  }
   .nav-center {
     display: flex;
     justify-content: space-between;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Product from "./Product.js";
-const Wrapper = styled.div`
+const Items = styled.div`
   margin: 0 5em;
   display: flex;
   justify-content: space-evenly;
@@ -16,18 +16,20 @@ const Text = styled.h3`
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 `;
-
+const Wrapper = styled.div`
+  margin: 30px 0;
+`;
 const Featured = ({ featured }) => {
   console.log(featured);
   return (
-    <>
+    <Wrapper>
       <Text>Best Sellers</Text>
-      <Wrapper>
+      <Items>
         {featured.map((feature) => {
           return <Product key={feature.id} product={feature} />;
         })}
-      </Wrapper>
-    </>
+      </Items>
+    </Wrapper>
   );
 };
 export default Featured;
