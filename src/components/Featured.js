@@ -6,6 +6,9 @@ const Items = styled.div`
   display: flex;
   justify-content: space-evenly;
   @media screen and (min-width: 1200px) {
+    display: flex;
+    column-gap: 20px;
+    justify-content: space-between;
     margin: 0 15vw auto;
   }
 `;
@@ -21,15 +24,17 @@ const Wrapper = styled.div`
 `;
 const Featured = ({ featured }) => {
   console.log(featured);
-  return (
-    <Wrapper>
-      <Text>Best Sellers</Text>
-      <Items>
-        {featured.map((feature) => {
-          return <Product key={feature.id} product={feature} />;
-        })}
-      </Items>
-    </Wrapper>
-  );
+  if (featured) {
+    return (
+      <Wrapper>
+        <Text>Best Sellers</Text>
+        <Items>
+          {featured.map((feature) => {
+            return <Product key={feature.id} product={feature} />;
+          })}
+        </Items>
+      </Wrapper>
+    );
+  }
 };
 export default Featured;
