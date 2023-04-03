@@ -6,7 +6,7 @@ import { formatPrice } from "../utilities/helper.js";
 const Product = ({ product }) => {
   const Wrapper = styled.div`
     height: 20em;
-    width: 30%;
+    width: 90%;
     border-radius: 5px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
     img {

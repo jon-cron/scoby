@@ -16,13 +16,15 @@ const HomePage = () => {
   useEffect(() => {
     getFeatured();
   }, [products]);
-  return (
-    <>
-      <AboutUs />
-      <Featured featured={featured} />
-      {/* NOTE start on rendering the products on Monday */}
-    </>
-  );
+  if (products) {
+    return (
+      <>
+        <AboutUs />
+        <Featured featured={featured} />
+        {/* NOTE start on rendering the products on Monday */}
+      </>
+    );
+  }
 };
 
 export default HomePage;
