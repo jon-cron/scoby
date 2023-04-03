@@ -16,7 +16,7 @@ const initialState = {
 };
 const CartContext = createContext();
 
-export const CartProvider = ({ children }) => {
+export const CartContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   // SECTION functions
   //SECTION end
@@ -24,4 +24,11 @@ export const CartProvider = ({ children }) => {
     // NOTE when you create functions you want access to place them in the value
     <CartContext.Provider value={{ ...state }}>{children}</CartContext.Provider>
   );
+};
+export const useCartContext = () => {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error("Must use auth within the provider");
+  }
+  return context;
 };
