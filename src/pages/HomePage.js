@@ -1,10 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { AboutUs, Featured } from "../components";
 import { useProductContext } from "../context/product_context.js";
+import { useCollection } from "../hooks/useCollection.js";
 const HomePage = () => {
-  const { featuredProducts } = useProductContext;
-  // const [featured, setFeatured] = useState([]);
-  console.log(featuredProducts);
+  const { getProducts, getFeatured, featuredProducts, products } =
+    useProductContext();
+  const { documents } = useCollection("kombuchas");
+
+  useEffect(() => {
+    if (documents) {
+      getProducts(documents);
+      getFeatured(documents);
+    }
+  }, [documents]);
   if (featuredProducts != []) {
     return (
       <>

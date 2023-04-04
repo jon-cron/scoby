@@ -1,23 +1,6 @@
 import { useEffect, useReducer, useContext, createContext } from "react";
 import { useCollection } from "../hooks/useCollection.js";
 
-const getProducts = () => {
-  const { documents: products } = useCollection("kombuchas");
-  dispatch({ type: "GET_ALL_PRODUCTS", payload: products });
-};
-const getFeatured = () => {
-  if (products) {
-    let arr = [];
-    for (let index = 0; index < 3; index++) {
-      arr.push(products[index]);
-    }
-    dispatch({ type: "GET_FEATURED", payload: arr });
-  }
-};
-useEffect(() => {
-  getProducts();
-  getFeatured();
-}, []);
 const initialState = {
   products: [],
   featuredProducts: [],
@@ -36,10 +19,20 @@ export const productReducer = (state, action) => {
 export const ProductContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(productReducer, initialState);
   //SECTION functions
-
+  const getProducts = (products) => {
+    dispatch({ type: "GET_ALL_PRODUCTS", payload: products });
+  };
+  const getFeatured = (documents) => {
+    const newArr = documents.slice(0, 3);
+    dispatch({ type: "GET_FEATURED", payload: newArr });
+  };
+  // useEffect(() => {
+  //   getProducts();
+  //   getFeatured();
+  // }, []);
   //SECTION end
   return (
-    <ProductContext.Provider value={{ ...state, dispatch }}>
+    <ProductContext.Provider value={{ ...state, getProducts, getFeatured }}>
       {children}
     </ProductContext.Provider>
   );
