@@ -3,8 +3,7 @@ import { AboutUs, Featured } from "../components";
 import { useProductContext } from "../context/product_context.js";
 import { useCollection } from "../hooks/useCollection.js";
 const HomePage = () => {
-  const { getProducts, getFeatured, featuredProducts, products } =
-    useProductContext();
+  const { getProducts, getFeatured, featuredProducts } = useProductContext();
   const { documents } = useCollection("kombuchas");
 
   useEffect(() => {
