@@ -17,7 +17,7 @@ const Products = () => {
   if (products) {
     return (
       <Container>
-        <Hero />
+        <Hero title="Products" />
         <Filter />
         <Wrapper>
           {products.map((product) => {
