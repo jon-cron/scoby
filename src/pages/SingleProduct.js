@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useDocument } from "../hooks/useDocument.js";
+import { Hero } from "../components";
 
 const SingleProduct = () => {
   const id = useParams().id;
   const { document } = useDocument("kombuchas", id);
-  const { stock, img, price, name, description } = document;
+
   const Wrapper = styled.main`
     .product-center {
       display: grid;
@@ -40,7 +41,13 @@ const SingleProduct = () => {
       }
     }
   `;
-  return <Wrapper>SingleProduct</Wrapper>;
+  if (document) {
+    return (
+      <Wrapper>
+        <Hero title={document?.name} product />
+      </Wrapper>
+    );
+  }
 };
 
 export default SingleProduct;
