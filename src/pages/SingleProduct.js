@@ -6,7 +6,7 @@ import { useDocument } from "../hooks/useDocument.js";
 const SingleProduct = () => {
   const id = useParams().id;
   const { document } = useDocument("kombuchas", id);
-  console.log(document);
+  const { stock, img, price, name, description } = document;
   const Wrapper = styled.main`
     .product-center {
       display: grid;
@@ -40,7 +40,7 @@ const SingleProduct = () => {
       }
     }
   `;
-  return <div>SingleProduct</div>;
+  return <Wrapper>SingleProduct</Wrapper>;
 };
 
 export default SingleProduct;
